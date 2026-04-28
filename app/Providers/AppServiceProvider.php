@@ -12,7 +12,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+        \App\Interfaces\MovieRepositoryInterface::class, // Folder baru
+        \App\Repositories\MovieRepository::class
+    );
     }
 
     /**
@@ -22,4 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
     }
+
+    
 }
